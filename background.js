@@ -16,19 +16,14 @@ async function getCurrentTab(){
 }
 
 function translate(info) {
-	// let queryOption = {active:true,currentWindow:true};
-	// let tab = getCurrentTab();
-	// console.log(tab)
-	// console.log(tab.index)
 
 	chrome.tabs.create({
 		url: "https://www.deepl.com/translator#en" +
 			"/" +
 			"ja" +
 			"/" +
-			encodeURIComponent(info.selectionText).replace(/%2F/g, "%5C%2F"),
-		// replace(/%20%20/g, "%20"),
-		// index: tab.index + 1,
+			encodeURIComponent(info.selectionText).replace(/%2F/g, "%5C%2F").replace(/%7C/g, "%5C%7C")
+
 	});	
 }
 
